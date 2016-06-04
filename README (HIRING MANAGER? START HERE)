@@ -6,11 +6,13 @@ R. Gallagher
 Turtle-Compiler
 Lex and Yacc translate a made-up "turtle language" into working python code 
 
-Hiring Managers read this:  
+HIRING MANAGERS READ THIS: 
 	The files that my partner and I wrote for this project are pyturtle.y, turtle.l, makefile, and the sample input programs.  
 	If you are assessing my programming ability the files you'll want to pay attention to are pyturtle.y and turtle.l, particularly 
 	pyturtle.y which is where all the translation happens to turn a file written in "turtle language" into python.  The pyturtle.y 
-	file itself is in C.  
+	file itself is in C.  Then you will want to check out each input file written in "turtle language" and compare it to its 
+	corresponding output file to verify that we translated them correctly (we did).  TurtleProjDoc.doc is the report that we 
+	submitted to our professor on this project.  Feel free to read it if you are curious about our programming choices.  
 
 Building and Executing
 	The project is already built.  The executable file is simply called "turtle."  But if something happens to this file, just run 
