@@ -1,0 +1,68 @@
+hatch
+        instinct lineoftriangles
+				shell
+                forward 15;
+		right;
+				endshell;
+                do 5
+                        color red;
+                        turn 120;
+                        forward 30;
+                        color blue;
+                        turn 120;
+                        forward 30;
+                        color yellow;
+                        turn 120;
+                        forward 30;
+                        color pink;
+                        turn 180;
+                        forward 15;
+			right;
+			notrail;
+			forward 26;
+			trail;
+			forward 14;
+			right;
+			forward 15;
+                enddo;
+        endinstinct
+	instinct square
+			forward 20;
+			forward 20;
+			right;
+			forward 20;
+			right;
+			forward 20;
+			right;
+			forward 20;
+			right;
+	endinstinct
+        turtle alex;
+        turtle bill;
+        alex trail;
+        bill trail;
+	bill instinct square;
+        do 2
+                alex instinct lineoftriangles;
+                bill shell
+                        forward 10;
+                        left;
+                        turn -30;
+                endshell;
+				do 2
+					bill right;
+					bill forward 30;
+				enddo;
+                bill instinct lineoftriangles;
+        enddo;
+        alex shell
+		turn 180;
+		forward 50;
+                instinct lineoftriangles;
+                do 5
+                        turn 20;
+                        forward 10;
+                enddo;
+        endshell;
+soup
+

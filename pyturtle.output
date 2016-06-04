@@ -1,0 +1,2347 @@
+Terminals unused in grammar
+
+   IS
+
+
+Grammar
+
+    0 $accept: hatch $end
+
+    1 hatch: HATCH SL SOUP
+
+    2 SL: INSTINCTLIST DL CL
+    3   | DL CL
+    4   | DL
+
+    5 INSTINCTLIST: IDEF
+    6             | IDEF INSTINCTLIST
+
+    7 IDEF: INSTINCT ID INCL ENDINSTINCT
+
+    8 DL: DL D
+    9   | D
+
+   10 D: TURTLE ID ';'
+
+   11 CL: CL CMD
+   12   | CMD
+
+   13 CMD: ID TRAIL ';'
+   14    | ID NOTRAIL ';'
+   15    | ID COLOR CS ';'
+   16    | ID FORWARD NUM ';'
+   17    | ID TURN NUM ';'
+   18    | ID TURN NEGNUM ';'
+   19    | ID RIGHT ';'
+   20    | ID LEFT ';'
+
+   21 $@1: /* empty */
+
+   22 CMD: ID $@1 SHELL SHLCL ENDSHELL ';'
+
+   23 $@2: /* empty */
+
+   24 CMD: ID $@2 INSTINCT ID ';'
+   25    | DO NUM DOL ENDDO ';'
+
+   26 DOL: DOL DLCMD
+   27    | DLCMD
+
+   28 DLCMD: ID TRAIL ';'
+   29      | ID NOTRAIL ';'
+   30      | ID COLOR CS ';'
+   31      | ID FORWARD NUM ';'
+   32      | ID TURN NUM ';'
+   33      | ID TURN NEGNUM ';'
+   34      | ID RIGHT ';'
+   35      | ID LEFT ';'
+
+   36 $@3: /* empty */
+
+   37 DLCMD: ID $@3 SHELL SHLCLTABS ENDSHELL ';'
+
+   38 $@4: /* empty */
+
+   39 DLCMD: ID $@4 INSTINCT ID ';'
+   40      | DO NUM DLCLTABS ENDDO ';'
+
+   41 SHLCL: SHLCL SHLCMD
+   42      | SHLCMD
+
+   43 SHLCMD: TRAIL ';'
+   44       | NOTRAIL ';'
+   45       | COLOR CS ';'
+   46       | FORWARD NUM ';'
+   47       | TURN NUM ';'
+   48       | TURN NEGNUM ';'
+   49       | RIGHT ';'
+   50       | LEFT ';'
+   51       | INSTINCT ID ';'
+   52       | DO NUM SHLCLTABS ENDDO ';'
+
+   53 SHLCLTABS: SHLCLTABS SHLCMDTABS
+   54          | SHLCMDTABS
+
+   55 SHLCMDTABS: TRAIL ';'
+   56           | NOTRAIL ';'
+   57           | COLOR CS ';'
+   58           | FORWARD NUM ';'
+   59           | TURN NUM ';'
+   60           | TURN NEGNUM ';'
+   61           | RIGHT ';'
+   62           | LEFT ';'
+   63           | INSTINCT ID ';'
+   64           | DO NUM SHLCL ENDDO ';'
+
+   65 DLCLTABS: DLCLTABS DLCMDTABS
+   66         | DLCMDTABS
+
+   67 DLCMDTABS: TRAIL ';'
+   68          | NOTRAIL ';'
+   69          | COLOR CS ';'
+   70          | FORWARD NUM ';'
+   71          | TURN NUM ';'
+   72          | TURN NEGNUM ';'
+   73          | RIGHT ';'
+   74          | LEFT ';'
+   75          | INSTINCT ID ';'
+   76          | ID TRAIL ';'
+   77          | ID NOTRAIL ';'
+   78          | ID COLOR CS ';'
+   79          | ID FORWARD NUM ';'
+   80          | ID TURN NUM ';'
+   81          | ID TURN NEGNUM ';'
+   82          | ID RIGHT ';'
+   83          | ID LEFT ';'
+   84          | ID INSTINCT ID ';'
+   85          | DO NUM DLCLTABS ENDDO ';'
+
+   86 INCL: INCL INCMD
+   87     | INCMD
+
+   88 INCMD: TRAIL ';'
+   89      | NOTRAIL ';'
+   90      | COLOR CS ';'
+   91      | FORWARD NUM ';'
+   92      | TURN NUM ';'
+   93      | TURN NEGNUM ';'
+   94      | RIGHT ';'
+   95      | LEFT ';'
+   96      | SHELL SHLCLTABS ENDSHELL ';'
+   97      | DO NUM DLCLTABS ENDDO ';'
+
+   98 CS: RED
+   99   | BLUE
+  100   | GREEN
+  101   | BLACK
+  102   | WHITE
+  103   | YELLOW
+  104   | ORANGE
+  105   | PURPLE
+  106   | PINK
+
+
+Terminals, with rules where they appear
+
+$end (0) 0
+';' (59) 10 13 14 15 16 17 18 19 20 22 24 25 28 29 30 31 32 33 34 35
+    37 39 40 43 44 45 46 47 48 49 50 51 52 55 56 57 58 59 60 61 62
+    63 64 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85
+    88 89 90 91 92 93 94 95 96 97
+error (256)
+NUM (258) 16 17 25 31 32 40 46 47 52 58 59 64 70 71 79 80 85 91 92
+    97
+NEGNUM (259) 18 33 48 60 72 81 93
+HATCH (260) 1
+SOUP (261) 1
+TURTLE (262) 10
+COLOR (263) 15 30 45 57 69 78 90
+NOTRAIL (264) 14 29 44 56 68 77 89
+TRAIL (265) 13 28 43 55 67 76 88
+FORWARD (266) 16 31 46 58 70 79 91
+TURN (267) 17 18 32 33 47 48 59 60 71 72 80 81 92 93
+RIGHT (268) 19 34 49 61 73 82 94
+LEFT (269) 20 35 50 62 74 83 95
+IS (270)
+SHELL (271) 22 37 96
+ENDSHELL (272) 22 37 96
+DO (273) 25 40 52 64 85 97
+ENDDO (274) 25 40 52 64 85 97
+INSTINCT (275) 7 24 39 51 63 75 84
+ENDINSTINCT (276) 7
+RED (277) 98
+GREEN (278) 100
+BLUE (279) 99
+BLACK (280) 101
+WHITE (281) 102
+YELLOW (282) 103
+ORANGE (283) 104
+PURPLE (284) 105
+PINK (285) 106
+ID (286) 7 10 13 14 15 16 17 18 19 20 22 24 28 29 30 31 32 33 34 35
+    37 39 51 63 75 76 77 78 79 80 81 82 83 84
+
+
+Nonterminals, with rules where they appear
+
+$accept (33)
+    on left: 0
+hatch (34)
+    on left: 1, on right: 0
+SL (35)
+    on left: 2 3 4, on right: 1
+INSTINCTLIST (36)
+    on left: 5 6, on right: 2 6
+IDEF (37)
+    on left: 7, on right: 5 6
+DL (38)
+    on left: 8 9, on right: 2 3 4 8
+D (39)
+    on left: 10, on right: 8 9
+CL (40)
+    on left: 11 12, on right: 2 3 11
+CMD (41)
+    on left: 13 14 15 16 17 18 19 20 22 24 25, on right: 11 12
+$@1 (42)
+    on left: 21, on right: 22
+$@2 (43)
+    on left: 23, on right: 24
+DOL (44)
+    on left: 26 27, on right: 25 26
+DLCMD (45)
+    on left: 28 29 30 31 32 33 34 35 37 39 40, on right: 26 27
+$@3 (46)
+    on left: 36, on right: 37
+$@4 (47)
+    on left: 38, on right: 39
+SHLCL (48)
+    on left: 41 42, on right: 22 41 64
+SHLCMD (49)
+    on left: 43 44 45 46 47 48 49 50 51 52, on right: 41 42
+SHLCLTABS (50)
+    on left: 53 54, on right: 37 52 53 96
+SHLCMDTABS (51)
+    on left: 55 56 57 58 59 60 61 62 63 64, on right: 53 54
+DLCLTABS (52)
+    on left: 65 66, on right: 40 65 85 97
+DLCMDTABS (53)
+    on left: 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84
+    85, on right: 65 66
+INCL (54)
+    on left: 86 87, on right: 7 86
+INCMD (55)
+    on left: 88 89 90 91 92 93 94 95 96 97, on right: 86 87
+CS (56)
+    on left: 98 99 100 101 102 103 104 105 106, on right: 15 30 45
+    57 69 78 90
+
+
+state 0
+
+    0 $accept: . hatch $end
+
+    HATCH  shift, and go to state 1
+
+    hatch  go to state 2
+
+
+state 1
+
+    1 hatch: HATCH . SL SOUP
+
+    TURTLE    shift, and go to state 3
+    INSTINCT  shift, and go to state 4
+
+    SL            go to state 5
+    INSTINCTLIST  go to state 6
+    IDEF          go to state 7
+    DL            go to state 8
+    D             go to state 9
+
+
+state 2
+
+    0 $accept: hatch . $end
+
+    $end  shift, and go to state 10
+
+
+state 3
+
+   10 D: TURTLE . ID ';'
+
+    ID  shift, and go to state 11
+
+
+state 4
+
+    7 IDEF: INSTINCT . ID INCL ENDINSTINCT
+
+    ID  shift, and go to state 12
+
+
+state 5
+
+    1 hatch: HATCH SL . SOUP
+
+    SOUP  shift, and go to state 13
+
+
+state 6
+
+    2 SL: INSTINCTLIST . DL CL
+
+    TURTLE  shift, and go to state 3
+
+    DL  go to state 14
+    D   go to state 9
+
+
+state 7
+
+    5 INSTINCTLIST: IDEF .
+    6             | IDEF . INSTINCTLIST
+
+    INSTINCT  shift, and go to state 4
+
+    $default  reduce using rule 5 (INSTINCTLIST)
+
+    INSTINCTLIST  go to state 15
+    IDEF          go to state 7
+
+
+state 8
+
+    3 SL: DL . CL
+    4   | DL .
+    8 DL: DL . D
+
+    TURTLE  shift, and go to state 3
+    DO      shift, and go to state 16
+    ID      shift, and go to state 17
+
+    $default  reduce using rule 4 (SL)
+
+    D    go to state 18
+    CL   go to state 19
+    CMD  go to state 20
+
+
+state 9
+
+    9 DL: D .
+
+    $default  reduce using rule 9 (DL)
+
+
+state 10
+
+    0 $accept: hatch $end .
+
+    $default  accept
+
+
+state 11
+
+   10 D: TURTLE ID . ';'
+
+    ';'  shift, and go to state 21
+
+
+state 12
+
+    7 IDEF: INSTINCT ID . INCL ENDINSTINCT
+
+    COLOR    shift, and go to state 22
+    NOTRAIL  shift, and go to state 23
+    TRAIL    shift, and go to state 24
+    FORWARD  shift, and go to state 25
+    TURN     shift, and go to state 26
+    RIGHT    shift, and go to state 27
+    LEFT     shift, and go to state 28
+    SHELL    shift, and go to state 29
+    DO       shift, and go to state 30
+
+    INCL   go to state 31
+    INCMD  go to state 32
+
+
+state 13
+
+    1 hatch: HATCH SL SOUP .
+
+    $default  reduce using rule 1 (hatch)
+
+
+state 14
+
+    2 SL: INSTINCTLIST DL . CL
+    8 DL: DL . D
+
+    TURTLE  shift, and go to state 3
+    DO      shift, and go to state 16
+    ID      shift, and go to state 17
+
+    D    go to state 18
+    CL   go to state 33
+    CMD  go to state 20
+
+
+state 15
+
+    6 INSTINCTLIST: IDEF INSTINCTLIST .
+
+    $default  reduce using rule 6 (INSTINCTLIST)
+
+
+state 16
+
+   25 CMD: DO . NUM DOL ENDDO ';'
+
+    NUM  shift, and go to state 34
+
+
+state 17
+
+   13 CMD: ID . TRAIL ';'
+   14    | ID . NOTRAIL ';'
+   15    | ID . COLOR CS ';'
+   16    | ID . FORWARD NUM ';'
+   17    | ID . TURN NUM ';'
+   18    | ID . TURN NEGNUM ';'
+   19    | ID . RIGHT ';'
+   20    | ID . LEFT ';'
+   22    | ID . $@1 SHELL SHLCL ENDSHELL ';'
+   24    | ID . $@2 INSTINCT ID ';'
+
+    COLOR    shift, and go to state 35
+    NOTRAIL  shift, and go to state 36
+    TRAIL    shift, and go to state 37
+    FORWARD  shift, and go to state 38
+    TURN     shift, and go to state 39
+    RIGHT    shift, and go to state 40
+    LEFT     shift, and go to state 41
+
+    INSTINCT  reduce using rule 23 ($@2)
+    $default  reduce using rule 21 ($@1)
+
+    $@1  go to state 42
+    $@2  go to state 43
+
+
+state 18
+
+    8 DL: DL D .
+
+    $default  reduce using rule 8 (DL)
+
+
+state 19
+
+    3 SL: DL CL .
+   11 CL: CL . CMD
+
+    DO  shift, and go to state 16
+    ID  shift, and go to state 17
+
+    $default  reduce using rule 3 (SL)
+
+    CMD  go to state 44
+
+
+state 20
+
+   12 CL: CMD .
+
+    $default  reduce using rule 12 (CL)
+
+
+state 21
+
+   10 D: TURTLE ID ';' .
+
+    $default  reduce using rule 10 (D)
+
+
+state 22
+
+   90 INCMD: COLOR . CS ';'
+
+    RED     shift, and go to state 45
+    GREEN   shift, and go to state 46
+    BLUE    shift, and go to state 47
+    BLACK   shift, and go to state 48
+    WHITE   shift, and go to state 49
+    YELLOW  shift, and go to state 50
+    ORANGE  shift, and go to state 51
+    PURPLE  shift, and go to state 52
+    PINK    shift, and go to state 53
+
+    CS  go to state 54
+
+
+state 23
+
+   89 INCMD: NOTRAIL . ';'
+
+    ';'  shift, and go to state 55
+
+
+state 24
+
+   88 INCMD: TRAIL . ';'
+
+    ';'  shift, and go to state 56
+
+
+state 25
+
+   91 INCMD: FORWARD . NUM ';'
+
+    NUM  shift, and go to state 57
+
+
+state 26
+
+   92 INCMD: TURN . NUM ';'
+   93      | TURN . NEGNUM ';'
+
+    NUM     shift, and go to state 58
+    NEGNUM  shift, and go to state 59
+
+
+state 27
+
+   94 INCMD: RIGHT . ';'
+
+    ';'  shift, and go to state 60
+
+
+state 28
+
+   95 INCMD: LEFT . ';'
+
+    ';'  shift, and go to state 61
+
+
+state 29
+
+   96 INCMD: SHELL . SHLCLTABS ENDSHELL ';'
+
+    COLOR     shift, and go to state 62
+    NOTRAIL   shift, and go to state 63
+    TRAIL     shift, and go to state 64
+    FORWARD   shift, and go to state 65
+    TURN      shift, and go to state 66
+    RIGHT     shift, and go to state 67
+    LEFT      shift, and go to state 68
+    DO        shift, and go to state 69
+    INSTINCT  shift, and go to state 70
+
+    SHLCLTABS   go to state 71
+    SHLCMDTABS  go to state 72
+
+
+state 30
+
+   97 INCMD: DO . NUM DLCLTABS ENDDO ';'
+
+    NUM  shift, and go to state 73
+
+
+state 31
+
+    7 IDEF: INSTINCT ID INCL . ENDINSTINCT
+   86 INCL: INCL . INCMD
+
+    COLOR        shift, and go to state 22
+    NOTRAIL      shift, and go to state 23
+    TRAIL        shift, and go to state 24
+    FORWARD      shift, and go to state 25
+    TURN         shift, and go to state 26
+    RIGHT        shift, and go to state 27
+    LEFT         shift, and go to state 28
+    SHELL        shift, and go to state 29
+    DO           shift, and go to state 30
+    ENDINSTINCT  shift, and go to state 74
+
+    INCMD  go to state 75
+
+
+state 32
+
+   87 INCL: INCMD .
+
+    $default  reduce using rule 87 (INCL)
+
+
+state 33
+
+    2 SL: INSTINCTLIST DL CL .
+   11 CL: CL . CMD
+
+    DO  shift, and go to state 16
+    ID  shift, and go to state 17
+
+    $default  reduce using rule 2 (SL)
+
+    CMD  go to state 44
+
+
+state 34
+
+   25 CMD: DO NUM . DOL ENDDO ';'
+
+    DO  shift, and go to state 76
+    ID  shift, and go to state 77
+
+    DOL    go to state 78
+    DLCMD  go to state 79
+
+
+state 35
+
+   15 CMD: ID COLOR . CS ';'
+
+    RED     shift, and go to state 45
+    GREEN   shift, and go to state 46
+    BLUE    shift, and go to state 47
+    BLACK   shift, and go to state 48
+    WHITE   shift, and go to state 49
+    YELLOW  shift, and go to state 50
+    ORANGE  shift, and go to state 51
+    PURPLE  shift, and go to state 52
+    PINK    shift, and go to state 53
+
+    CS  go to state 80
+
+
+state 36
+
+   14 CMD: ID NOTRAIL . ';'
+
+    ';'  shift, and go to state 81
+
+
+state 37
+
+   13 CMD: ID TRAIL . ';'
+
+    ';'  shift, and go to state 82
+
+
+state 38
+
+   16 CMD: ID FORWARD . NUM ';'
+
+    NUM  shift, and go to state 83
+
+
+state 39
+
+   17 CMD: ID TURN . NUM ';'
+   18    | ID TURN . NEGNUM ';'
+
+    NUM     shift, and go to state 84
+    NEGNUM  shift, and go to state 85
+
+
+state 40
+
+   19 CMD: ID RIGHT . ';'
+
+    ';'  shift, and go to state 86
+
+
+state 41
+
+   20 CMD: ID LEFT . ';'
+
+    ';'  shift, and go to state 87
+
+
+state 42
+
+   22 CMD: ID $@1 . SHELL SHLCL ENDSHELL ';'
+
+    SHELL  shift, and go to state 88
+
+
+state 43
+
+   24 CMD: ID $@2 . INSTINCT ID ';'
+
+    INSTINCT  shift, and go to state 89
+
+
+state 44
+
+   11 CL: CL CMD .
+
+    $default  reduce using rule 11 (CL)
+
+
+state 45
+
+   98 CS: RED .
+
+    $default  reduce using rule 98 (CS)
+
+
+state 46
+
+  100 CS: GREEN .
+
+    $default  reduce using rule 100 (CS)
+
+
+state 47
+
+   99 CS: BLUE .
+
+    $default  reduce using rule 99 (CS)
+
+
+state 48
+
+  101 CS: BLACK .
+
+    $default  reduce using rule 101 (CS)
+
+
+state 49
+
+  102 CS: WHITE .
+
+    $default  reduce using rule 102 (CS)
+
+
+state 50
+
+  103 CS: YELLOW .
+
+    $default  reduce using rule 103 (CS)
+
+
+state 51
+
+  104 CS: ORANGE .
+
+    $default  reduce using rule 104 (CS)
+
+
+state 52
+
+  105 CS: PURPLE .
+
+    $default  reduce using rule 105 (CS)
+
+
+state 53
+
+  106 CS: PINK .
+
+    $default  reduce using rule 106 (CS)
+
+
+state 54
+
+   90 INCMD: COLOR CS . ';'
+
+    ';'  shift, and go to state 90
+
+
+state 55
+
+   89 INCMD: NOTRAIL ';' .
+
+    $default  reduce using rule 89 (INCMD)
+
+
+state 56
+
+   88 INCMD: TRAIL ';' .
+
+    $default  reduce using rule 88 (INCMD)
+
+
+state 57
+
+   91 INCMD: FORWARD NUM . ';'
+
+    ';'  shift, and go to state 91
+
+
+state 58
+
+   92 INCMD: TURN NUM . ';'
+
+    ';'  shift, and go to state 92
+
+
+state 59
+
+   93 INCMD: TURN NEGNUM . ';'
+
+    ';'  shift, and go to state 93
+
+
+state 60
+
+   94 INCMD: RIGHT ';' .
+
+    $default  reduce using rule 94 (INCMD)
+
+
+state 61
+
+   95 INCMD: LEFT ';' .
+
+    $default  reduce using rule 95 (INCMD)
+
+
+state 62
+
+   57 SHLCMDTABS: COLOR . CS ';'
+
+    RED     shift, and go to state 45
+    GREEN   shift, and go to state 46
+    BLUE    shift, and go to state 47
+    BLACK   shift, and go to state 48
+    WHITE   shift, and go to state 49
+    YELLOW  shift, and go to state 50
+    ORANGE  shift, and go to state 51
+    PURPLE  shift, and go to state 52
+    PINK    shift, and go to state 53
+
+    CS  go to state 94
+
+
+state 63
+
+   56 SHLCMDTABS: NOTRAIL . ';'
+
+    ';'  shift, and go to state 95
+
+
+state 64
+
+   55 SHLCMDTABS: TRAIL . ';'
+
+    ';'  shift, and go to state 96
+
+
+state 65
+
+   58 SHLCMDTABS: FORWARD . NUM ';'
+
+    NUM  shift, and go to state 97
+
+
+state 66
+
+   59 SHLCMDTABS: TURN . NUM ';'
+   60           | TURN . NEGNUM ';'
+
+    NUM     shift, and go to state 98
+    NEGNUM  shift, and go to state 99
+
+
+state 67
+
+   61 SHLCMDTABS: RIGHT . ';'
+
+    ';'  shift, and go to state 100
+
+
+state 68
+
+   62 SHLCMDTABS: LEFT . ';'
+
+    ';'  shift, and go to state 101
+
+
+state 69
+
+   64 SHLCMDTABS: DO . NUM SHLCL ENDDO ';'
+
+    NUM  shift, and go to state 102
+
+
+state 70
+
+   63 SHLCMDTABS: INSTINCT . ID ';'
+
+    ID  shift, and go to state 103
+
+
+state 71
+
+   53 SHLCLTABS: SHLCLTABS . SHLCMDTABS
+   96 INCMD: SHELL SHLCLTABS . ENDSHELL ';'
+
+    COLOR     shift, and go to state 62
+    NOTRAIL   shift, and go to state 63
+    TRAIL     shift, and go to state 64
+    FORWARD   shift, and go to state 65
+    TURN      shift, and go to state 66
+    RIGHT     shift, and go to state 67
+    LEFT      shift, and go to state 68
+    ENDSHELL  shift, and go to state 104
+    DO        shift, and go to state 69
+    INSTINCT  shift, and go to state 70
+
+    SHLCMDTABS  go to state 105
+
+
+state 72
+
+   54 SHLCLTABS: SHLCMDTABS .
+
+    $default  reduce using rule 54 (SHLCLTABS)
+
+
+state 73
+
+   97 INCMD: DO NUM . DLCLTABS ENDDO ';'
+
+    COLOR     shift, and go to state 106
+    NOTRAIL   shift, and go to state 107
+    TRAIL     shift, and go to state 108
+    FORWARD   shift, and go to state 109
+    TURN      shift, and go to state 110
+    RIGHT     shift, and go to state 111
+    LEFT      shift, and go to state 112
+    DO        shift, and go to state 113
+    INSTINCT  shift, and go to state 114
+    ID        shift, and go to state 115
+
+    DLCLTABS   go to state 116
+    DLCMDTABS  go to state 117
+
+
+state 74
+
+    7 IDEF: INSTINCT ID INCL ENDINSTINCT .
+
+    $default  reduce using rule 7 (IDEF)
+
+
+state 75
+
+   86 INCL: INCL INCMD .
+
+    $default  reduce using rule 86 (INCL)
+
+
+state 76
+
+   40 DLCMD: DO . NUM DLCLTABS ENDDO ';'
+
+    NUM  shift, and go to state 118
+
+
+state 77
+
+   28 DLCMD: ID . TRAIL ';'
+   29      | ID . NOTRAIL ';'
+   30      | ID . COLOR CS ';'
+   31      | ID . FORWARD NUM ';'
+   32      | ID . TURN NUM ';'
+   33      | ID . TURN NEGNUM ';'
+   34      | ID . RIGHT ';'
+   35      | ID . LEFT ';'
+   37      | ID . $@3 SHELL SHLCLTABS ENDSHELL ';'
+   39      | ID . $@4 INSTINCT ID ';'
+
+    COLOR    shift, and go to state 119
+    NOTRAIL  shift, and go to state 120
+    TRAIL    shift, and go to state 121
+    FORWARD  shift, and go to state 122
+    TURN     shift, and go to state 123
+    RIGHT    shift, and go to state 124
+    LEFT     shift, and go to state 125
+
+    INSTINCT  reduce using rule 38 ($@4)
+    $default  reduce using rule 36 ($@3)
+
+    $@3  go to state 126
+    $@4  go to state 127
+
+
+state 78
+
+   25 CMD: DO NUM DOL . ENDDO ';'
+   26 DOL: DOL . DLCMD
+
+    DO     shift, and go to state 76
+    ENDDO  shift, and go to state 128
+    ID     shift, and go to state 77
+
+    DLCMD  go to state 129
+
+
+state 79
+
+   27 DOL: DLCMD .
+
+    $default  reduce using rule 27 (DOL)
+
+
+state 80
+
+   15 CMD: ID COLOR CS . ';'
+
+    ';'  shift, and go to state 130
+
+
+state 81
+
+   14 CMD: ID NOTRAIL ';' .
+
+    $default  reduce using rule 14 (CMD)
+
+
+state 82
+
+   13 CMD: ID TRAIL ';' .
+
+    $default  reduce using rule 13 (CMD)
+
+
+state 83
+
+   16 CMD: ID FORWARD NUM . ';'
+
+    ';'  shift, and go to state 131
+
+
+state 84
+
+   17 CMD: ID TURN NUM . ';'
+
+    ';'  shift, and go to state 132
+
+
+state 85
+
+   18 CMD: ID TURN NEGNUM . ';'
+
+    ';'  shift, and go to state 133
+
+
+state 86
+
+   19 CMD: ID RIGHT ';' .
+
+    $default  reduce using rule 19 (CMD)
+
+
+state 87
+
+   20 CMD: ID LEFT ';' .
+
+    $default  reduce using rule 20 (CMD)
+
+
+state 88
+
+   22 CMD: ID $@1 SHELL . SHLCL ENDSHELL ';'
+
+    COLOR     shift, and go to state 134
+    NOTRAIL   shift, and go to state 135
+    TRAIL     shift, and go to state 136
+    FORWARD   shift, and go to state 137
+    TURN      shift, and go to state 138
+    RIGHT     shift, and go to state 139
+    LEFT      shift, and go to state 140
+    DO        shift, and go to state 141
+    INSTINCT  shift, and go to state 142
+
+    SHLCL   go to state 143
+    SHLCMD  go to state 144
+
+
+state 89
+
+   24 CMD: ID $@2 INSTINCT . ID ';'
+
+    ID  shift, and go to state 145
+
+
+state 90
+
+   90 INCMD: COLOR CS ';' .
+
+    $default  reduce using rule 90 (INCMD)
+
+
+state 91
+
+   91 INCMD: FORWARD NUM ';' .
+
+    $default  reduce using rule 91 (INCMD)
+
+
+state 92
+
+   92 INCMD: TURN NUM ';' .
+
+    $default  reduce using rule 92 (INCMD)
+
+
+state 93
+
+   93 INCMD: TURN NEGNUM ';' .
+
+    $default  reduce using rule 93 (INCMD)
+
+
+state 94
+
+   57 SHLCMDTABS: COLOR CS . ';'
+
+    ';'  shift, and go to state 146
+
+
+state 95
+
+   56 SHLCMDTABS: NOTRAIL ';' .
+
+    $default  reduce using rule 56 (SHLCMDTABS)
+
+
+state 96
+
+   55 SHLCMDTABS: TRAIL ';' .
+
+    $default  reduce using rule 55 (SHLCMDTABS)
+
+
+state 97
+
+   58 SHLCMDTABS: FORWARD NUM . ';'
+
+    ';'  shift, and go to state 147
+
+
+state 98
+
+   59 SHLCMDTABS: TURN NUM . ';'
+
+    ';'  shift, and go to state 148
+
+
+state 99
+
+   60 SHLCMDTABS: TURN NEGNUM . ';'
+
+    ';'  shift, and go to state 149
+
+
+state 100
+
+   61 SHLCMDTABS: RIGHT ';' .
+
+    $default  reduce using rule 61 (SHLCMDTABS)
+
+
+state 101
+
+   62 SHLCMDTABS: LEFT ';' .
+
+    $default  reduce using rule 62 (SHLCMDTABS)
+
+
+state 102
+
+   64 SHLCMDTABS: DO NUM . SHLCL ENDDO ';'
+
+    COLOR     shift, and go to state 134
+    NOTRAIL   shift, and go to state 135
+    TRAIL     shift, and go to state 136
+    FORWARD   shift, and go to state 137
+    TURN      shift, and go to state 138
+    RIGHT     shift, and go to state 139
+    LEFT      shift, and go to state 140
+    DO        shift, and go to state 141
+    INSTINCT  shift, and go to state 142
+
+    SHLCL   go to state 150
+    SHLCMD  go to state 144
+
+
+state 103
+
+   63 SHLCMDTABS: INSTINCT ID . ';'
+
+    ';'  shift, and go to state 151
+
+
+state 104
+
+   96 INCMD: SHELL SHLCLTABS ENDSHELL . ';'
+
+    ';'  shift, and go to state 152
+
+
+state 105
+
+   53 SHLCLTABS: SHLCLTABS SHLCMDTABS .
+
+    $default  reduce using rule 53 (SHLCLTABS)
+
+
+state 106
+
+   69 DLCMDTABS: COLOR . CS ';'
+
+    RED     shift, and go to state 45
+    GREEN   shift, and go to state 46
+    BLUE    shift, and go to state 47
+    BLACK   shift, and go to state 48
+    WHITE   shift, and go to state 49
+    YELLOW  shift, and go to state 50
+    ORANGE  shift, and go to state 51
+    PURPLE  shift, and go to state 52
+    PINK    shift, and go to state 53
+
+    CS  go to state 153
+
+
+state 107
+
+   68 DLCMDTABS: NOTRAIL . ';'
+
+    ';'  shift, and go to state 154
+
+
+state 108
+
+   67 DLCMDTABS: TRAIL . ';'
+
+    ';'  shift, and go to state 155
+
+
+state 109
+
+   70 DLCMDTABS: FORWARD . NUM ';'
+
+    NUM  shift, and go to state 156
+
+
+state 110
+
+   71 DLCMDTABS: TURN . NUM ';'
+   72          | TURN . NEGNUM ';'
+
+    NUM     shift, and go to state 157
+    NEGNUM  shift, and go to state 158
+
+
+state 111
+
+   73 DLCMDTABS: RIGHT . ';'
+
+    ';'  shift, and go to state 159
+
+
+state 112
+
+   74 DLCMDTABS: LEFT . ';'
+
+    ';'  shift, and go to state 160
+
+
+state 113
+
+   85 DLCMDTABS: DO . NUM DLCLTABS ENDDO ';'
+
+    NUM  shift, and go to state 161
+
+
+state 114
+
+   75 DLCMDTABS: INSTINCT . ID ';'
+
+    ID  shift, and go to state 162
+
+
+state 115
+
+   76 DLCMDTABS: ID . TRAIL ';'
+   77          | ID . NOTRAIL ';'
+   78          | ID . COLOR CS ';'
+   79          | ID . FORWARD NUM ';'
+   80          | ID . TURN NUM ';'
+   81          | ID . TURN NEGNUM ';'
+   82          | ID . RIGHT ';'
+   83          | ID . LEFT ';'
+   84          | ID . INSTINCT ID ';'
+
+    COLOR     shift, and go to state 163
+    NOTRAIL   shift, and go to state 164
+    TRAIL     shift, and go to state 165
+    FORWARD   shift, and go to state 166
+    TURN      shift, and go to state 167
+    RIGHT     shift, and go to state 168
+    LEFT      shift, and go to state 169
+    INSTINCT  shift, and go to state 170
+
+
+state 116
+
+   65 DLCLTABS: DLCLTABS . DLCMDTABS
+   97 INCMD: DO NUM DLCLTABS . ENDDO ';'
+
+    COLOR     shift, and go to state 106
+    NOTRAIL   shift, and go to state 107
+    TRAIL     shift, and go to state 108
+    FORWARD   shift, and go to state 109
+    TURN      shift, and go to state 110
+    RIGHT     shift, and go to state 111
+    LEFT      shift, and go to state 112
+    DO        shift, and go to state 113
+    ENDDO     shift, and go to state 171
+    INSTINCT  shift, and go to state 114
+    ID        shift, and go to state 115
+
+    DLCMDTABS  go to state 172
+
+
+state 117
+
+   66 DLCLTABS: DLCMDTABS .
+
+    $default  reduce using rule 66 (DLCLTABS)
+
+
+state 118
+
+   40 DLCMD: DO NUM . DLCLTABS ENDDO ';'
+
+    COLOR     shift, and go to state 106
+    NOTRAIL   shift, and go to state 107
+    TRAIL     shift, and go to state 108
+    FORWARD   shift, and go to state 109
+    TURN      shift, and go to state 110
+    RIGHT     shift, and go to state 111
+    LEFT      shift, and go to state 112
+    DO        shift, and go to state 113
+    INSTINCT  shift, and go to state 114
+    ID        shift, and go to state 115
+
+    DLCLTABS   go to state 173
+    DLCMDTABS  go to state 117
+
+
+state 119
+
+   30 DLCMD: ID COLOR . CS ';'
+
+    RED     shift, and go to state 45
+    GREEN   shift, and go to state 46
+    BLUE    shift, and go to state 47
+    BLACK   shift, and go to state 48
+    WHITE   shift, and go to state 49
+    YELLOW  shift, and go to state 50
+    ORANGE  shift, and go to state 51
+    PURPLE  shift, and go to state 52
+    PINK    shift, and go to state 53
+
+    CS  go to state 174
+
+
+state 120
+
+   29 DLCMD: ID NOTRAIL . ';'
+
+    ';'  shift, and go to state 175
+
+
+state 121
+
+   28 DLCMD: ID TRAIL . ';'
+
+    ';'  shift, and go to state 176
+
+
+state 122
+
+   31 DLCMD: ID FORWARD . NUM ';'
+
+    NUM  shift, and go to state 177
+
+
+state 123
+
+   32 DLCMD: ID TURN . NUM ';'
+   33      | ID TURN . NEGNUM ';'
+
+    NUM     shift, and go to state 178
+    NEGNUM  shift, and go to state 179
+
+
+state 124
+
+   34 DLCMD: ID RIGHT . ';'
+
+    ';'  shift, and go to state 180
+
+
+state 125
+
+   35 DLCMD: ID LEFT . ';'
+
+    ';'  shift, and go to state 181
+
+
+state 126
+
+   37 DLCMD: ID $@3 . SHELL SHLCLTABS ENDSHELL ';'
+
+    SHELL  shift, and go to state 182
+
+
+state 127
+
+   39 DLCMD: ID $@4 . INSTINCT ID ';'
+
+    INSTINCT  shift, and go to state 183
+
+
+state 128
+
+   25 CMD: DO NUM DOL ENDDO . ';'
+
+    ';'  shift, and go to state 184
+
+
+state 129
+
+   26 DOL: DOL DLCMD .
+
+    $default  reduce using rule 26 (DOL)
+
+
+state 130
+
+   15 CMD: ID COLOR CS ';' .
+
+    $default  reduce using rule 15 (CMD)
+
+
+state 131
+
+   16 CMD: ID FORWARD NUM ';' .
+
+    $default  reduce using rule 16 (CMD)
+
+
+state 132
+
+   17 CMD: ID TURN NUM ';' .
+
+    $default  reduce using rule 17 (CMD)
+
+
+state 133
+
+   18 CMD: ID TURN NEGNUM ';' .
+
+    $default  reduce using rule 18 (CMD)
+
+
+state 134
+
+   45 SHLCMD: COLOR . CS ';'
+
+    RED     shift, and go to state 45
+    GREEN   shift, and go to state 46
+    BLUE    shift, and go to state 47
+    BLACK   shift, and go to state 48
+    WHITE   shift, and go to state 49
+    YELLOW  shift, and go to state 50
+    ORANGE  shift, and go to state 51
+    PURPLE  shift, and go to state 52
+    PINK    shift, and go to state 53
+
+    CS  go to state 185
+
+
+state 135
+
+   44 SHLCMD: NOTRAIL . ';'
+
+    ';'  shift, and go to state 186
+
+
+state 136
+
+   43 SHLCMD: TRAIL . ';'
+
+    ';'  shift, and go to state 187
+
+
+state 137
+
+   46 SHLCMD: FORWARD . NUM ';'
+
+    NUM  shift, and go to state 188
+
+
+state 138
+
+   47 SHLCMD: TURN . NUM ';'
+   48       | TURN . NEGNUM ';'
+
+    NUM     shift, and go to state 189
+    NEGNUM  shift, and go to state 190
+
+
+state 139
+
+   49 SHLCMD: RIGHT . ';'
+
+    ';'  shift, and go to state 191
+
+
+state 140
+
+   50 SHLCMD: LEFT . ';'
+
+    ';'  shift, and go to state 192
+
+
+state 141
+
+   52 SHLCMD: DO . NUM SHLCLTABS ENDDO ';'
+
+    NUM  shift, and go to state 193
+
+
+state 142
+
+   51 SHLCMD: INSTINCT . ID ';'
+
+    ID  shift, and go to state 194
+
+
+state 143
+
+   22 CMD: ID $@1 SHELL SHLCL . ENDSHELL ';'
+   41 SHLCL: SHLCL . SHLCMD
+
+    COLOR     shift, and go to state 134
+    NOTRAIL   shift, and go to state 135
+    TRAIL     shift, and go to state 136
+    FORWARD   shift, and go to state 137
+    TURN      shift, and go to state 138
+    RIGHT     shift, and go to state 139
+    LEFT      shift, and go to state 140
+    ENDSHELL  shift, and go to state 195
+    DO        shift, and go to state 141
+    INSTINCT  shift, and go to state 142
+
+    SHLCMD  go to state 196
+
+
+state 144
+
+   42 SHLCL: SHLCMD .
+
+    $default  reduce using rule 42 (SHLCL)
+
+
+state 145
+
+   24 CMD: ID $@2 INSTINCT ID . ';'
+
+    ';'  shift, and go to state 197
+
+
+state 146
+
+   57 SHLCMDTABS: COLOR CS ';' .
+
+    $default  reduce using rule 57 (SHLCMDTABS)
+
+
+state 147
+
+   58 SHLCMDTABS: FORWARD NUM ';' .
+
+    $default  reduce using rule 58 (SHLCMDTABS)
+
+
+state 148
+
+   59 SHLCMDTABS: TURN NUM ';' .
+
+    $default  reduce using rule 59 (SHLCMDTABS)
+
+
+state 149
+
+   60 SHLCMDTABS: TURN NEGNUM ';' .
+
+    $default  reduce using rule 60 (SHLCMDTABS)
+
+
+state 150
+
+   41 SHLCL: SHLCL . SHLCMD
+   64 SHLCMDTABS: DO NUM SHLCL . ENDDO ';'
+
+    COLOR     shift, and go to state 134
+    NOTRAIL   shift, and go to state 135
+    TRAIL     shift, and go to state 136
+    FORWARD   shift, and go to state 137
+    TURN      shift, and go to state 138
+    RIGHT     shift, and go to state 139
+    LEFT      shift, and go to state 140
+    DO        shift, and go to state 141
+    ENDDO     shift, and go to state 198
+    INSTINCT  shift, and go to state 142
+
+    SHLCMD  go to state 196
+
+
+state 151
+
+   63 SHLCMDTABS: INSTINCT ID ';' .
+
+    $default  reduce using rule 63 (SHLCMDTABS)
+
+
+state 152
+
+   96 INCMD: SHELL SHLCLTABS ENDSHELL ';' .
+
+    $default  reduce using rule 96 (INCMD)
+
+
+state 153
+
+   69 DLCMDTABS: COLOR CS . ';'
+
+    ';'  shift, and go to state 199
+
+
+state 154
+
+   68 DLCMDTABS: NOTRAIL ';' .
+
+    $default  reduce using rule 68 (DLCMDTABS)
+
+
+state 155
+
+   67 DLCMDTABS: TRAIL ';' .
+
+    $default  reduce using rule 67 (DLCMDTABS)
+
+
+state 156
+
+   70 DLCMDTABS: FORWARD NUM . ';'
+
+    ';'  shift, and go to state 200
+
+
+state 157
+
+   71 DLCMDTABS: TURN NUM . ';'
+
+    ';'  shift, and go to state 201
+
+
+state 158
+
+   72 DLCMDTABS: TURN NEGNUM . ';'
+
+    ';'  shift, and go to state 202
+
+
+state 159
+
+   73 DLCMDTABS: RIGHT ';' .
+
+    $default  reduce using rule 73 (DLCMDTABS)
+
+
+state 160
+
+   74 DLCMDTABS: LEFT ';' .
+
+    $default  reduce using rule 74 (DLCMDTABS)
+
+
+state 161
+
+   85 DLCMDTABS: DO NUM . DLCLTABS ENDDO ';'
+
+    COLOR     shift, and go to state 106
+    NOTRAIL   shift, and go to state 107
+    TRAIL     shift, and go to state 108
+    FORWARD   shift, and go to state 109
+    TURN      shift, and go to state 110
+    RIGHT     shift, and go to state 111
+    LEFT      shift, and go to state 112
+    DO        shift, and go to state 113
+    INSTINCT  shift, and go to state 114
+    ID        shift, and go to state 115
+
+    DLCLTABS   go to state 203
+    DLCMDTABS  go to state 117
+
+
+state 162
+
+   75 DLCMDTABS: INSTINCT ID . ';'
+
+    ';'  shift, and go to state 204
+
+
+state 163
+
+   78 DLCMDTABS: ID COLOR . CS ';'
+
+    RED     shift, and go to state 45
+    GREEN   shift, and go to state 46
+    BLUE    shift, and go to state 47
+    BLACK   shift, and go to state 48
+    WHITE   shift, and go to state 49
+    YELLOW  shift, and go to state 50
+    ORANGE  shift, and go to state 51
+    PURPLE  shift, and go to state 52
+    PINK    shift, and go to state 53
+
+    CS  go to state 205
+
+
+state 164
+
+   77 DLCMDTABS: ID NOTRAIL . ';'
+
+    ';'  shift, and go to state 206
+
+
+state 165
+
+   76 DLCMDTABS: ID TRAIL . ';'
+
+    ';'  shift, and go to state 207
+
+
+state 166
+
+   79 DLCMDTABS: ID FORWARD . NUM ';'
+
+    NUM  shift, and go to state 208
+
+
+state 167
+
+   80 DLCMDTABS: ID TURN . NUM ';'
+   81          | ID TURN . NEGNUM ';'
+
+    NUM     shift, and go to state 209
+    NEGNUM  shift, and go to state 210
+
+
+state 168
+
+   82 DLCMDTABS: ID RIGHT . ';'
+
+    ';'  shift, and go to state 211
+
+
+state 169
+
+   83 DLCMDTABS: ID LEFT . ';'
+
+    ';'  shift, and go to state 212
+
+
+state 170
+
+   84 DLCMDTABS: ID INSTINCT . ID ';'
+
+    ID  shift, and go to state 213
+
+
+state 171
+
+   97 INCMD: DO NUM DLCLTABS ENDDO . ';'
+
+    ';'  shift, and go to state 214
+
+
+state 172
+
+   65 DLCLTABS: DLCLTABS DLCMDTABS .
+
+    $default  reduce using rule 65 (DLCLTABS)
+
+
+state 173
+
+   40 DLCMD: DO NUM DLCLTABS . ENDDO ';'
+   65 DLCLTABS: DLCLTABS . DLCMDTABS
+
+    COLOR     shift, and go to state 106
+    NOTRAIL   shift, and go to state 107
+    TRAIL     shift, and go to state 108
+    FORWARD   shift, and go to state 109
+    TURN      shift, and go to state 110
+    RIGHT     shift, and go to state 111
+    LEFT      shift, and go to state 112
+    DO        shift, and go to state 113
+    ENDDO     shift, and go to state 215
+    INSTINCT  shift, and go to state 114
+    ID        shift, and go to state 115
+
+    DLCMDTABS  go to state 172
+
+
+state 174
+
+   30 DLCMD: ID COLOR CS . ';'
+
+    ';'  shift, and go to state 216
+
+
+state 175
+
+   29 DLCMD: ID NOTRAIL ';' .
+
+    $default  reduce using rule 29 (DLCMD)
+
+
+state 176
+
+   28 DLCMD: ID TRAIL ';' .
+
+    $default  reduce using rule 28 (DLCMD)
+
+
+state 177
+
+   31 DLCMD: ID FORWARD NUM . ';'
+
+    ';'  shift, and go to state 217
+
+
+state 178
+
+   32 DLCMD: ID TURN NUM . ';'
+
+    ';'  shift, and go to state 218
+
+
+state 179
+
+   33 DLCMD: ID TURN NEGNUM . ';'
+
+    ';'  shift, and go to state 219
+
+
+state 180
+
+   34 DLCMD: ID RIGHT ';' .
+
+    $default  reduce using rule 34 (DLCMD)
+
+
+state 181
+
+   35 DLCMD: ID LEFT ';' .
+
+    $default  reduce using rule 35 (DLCMD)
+
+
+state 182
+
+   37 DLCMD: ID $@3 SHELL . SHLCLTABS ENDSHELL ';'
+
+    COLOR     shift, and go to state 62
+    NOTRAIL   shift, and go to state 63
+    TRAIL     shift, and go to state 64
+    FORWARD   shift, and go to state 65
+    TURN      shift, and go to state 66
+    RIGHT     shift, and go to state 67
+    LEFT      shift, and go to state 68
+    DO        shift, and go to state 69
+    INSTINCT  shift, and go to state 70
+
+    SHLCLTABS   go to state 220
+    SHLCMDTABS  go to state 72
+
+
+state 183
+
+   39 DLCMD: ID $@4 INSTINCT . ID ';'
+
+    ID  shift, and go to state 221
+
+
+state 184
+
+   25 CMD: DO NUM DOL ENDDO ';' .
+
+    $default  reduce using rule 25 (CMD)
+
+
+state 185
+
+   45 SHLCMD: COLOR CS . ';'
+
+    ';'  shift, and go to state 222
+
+
+state 186
+
+   44 SHLCMD: NOTRAIL ';' .
+
+    $default  reduce using rule 44 (SHLCMD)
+
+
+state 187
+
+   43 SHLCMD: TRAIL ';' .
+
+    $default  reduce using rule 43 (SHLCMD)
+
+
+state 188
+
+   46 SHLCMD: FORWARD NUM . ';'
+
+    ';'  shift, and go to state 223
+
+
+state 189
+
+   47 SHLCMD: TURN NUM . ';'
+
+    ';'  shift, and go to state 224
+
+
+state 190
+
+   48 SHLCMD: TURN NEGNUM . ';'
+
+    ';'  shift, and go to state 225
+
+
+state 191
+
+   49 SHLCMD: RIGHT ';' .
+
+    $default  reduce using rule 49 (SHLCMD)
+
+
+state 192
+
+   50 SHLCMD: LEFT ';' .
+
+    $default  reduce using rule 50 (SHLCMD)
+
+
+state 193
+
+   52 SHLCMD: DO NUM . SHLCLTABS ENDDO ';'
+
+    COLOR     shift, and go to state 62
+    NOTRAIL   shift, and go to state 63
+    TRAIL     shift, and go to state 64
+    FORWARD   shift, and go to state 65
+    TURN      shift, and go to state 66
+    RIGHT     shift, and go to state 67
+    LEFT      shift, and go to state 68
+    DO        shift, and go to state 69
+    INSTINCT  shift, and go to state 70
+
+    SHLCLTABS   go to state 226
+    SHLCMDTABS  go to state 72
+
+
+state 194
+
+   51 SHLCMD: INSTINCT ID . ';'
+
+    ';'  shift, and go to state 227
+
+
+state 195
+
+   22 CMD: ID $@1 SHELL SHLCL ENDSHELL . ';'
+
+    ';'  shift, and go to state 228
+
+
+state 196
+
+   41 SHLCL: SHLCL SHLCMD .
+
+    $default  reduce using rule 41 (SHLCL)
+
+
+state 197
+
+   24 CMD: ID $@2 INSTINCT ID ';' .
+
+    $default  reduce using rule 24 (CMD)
+
+
+state 198
+
+   64 SHLCMDTABS: DO NUM SHLCL ENDDO . ';'
+
+    ';'  shift, and go to state 229
+
+
+state 199
+
+   69 DLCMDTABS: COLOR CS ';' .
+
+    $default  reduce using rule 69 (DLCMDTABS)
+
+
+state 200
+
+   70 DLCMDTABS: FORWARD NUM ';' .
+
+    $default  reduce using rule 70 (DLCMDTABS)
+
+
+state 201
+
+   71 DLCMDTABS: TURN NUM ';' .
+
+    $default  reduce using rule 71 (DLCMDTABS)
+
+
+state 202
+
+   72 DLCMDTABS: TURN NEGNUM ';' .
+
+    $default  reduce using rule 72 (DLCMDTABS)
+
+
+state 203
+
+   65 DLCLTABS: DLCLTABS . DLCMDTABS
+   85 DLCMDTABS: DO NUM DLCLTABS . ENDDO ';'
+
+    COLOR     shift, and go to state 106
+    NOTRAIL   shift, and go to state 107
+    TRAIL     shift, and go to state 108
+    FORWARD   shift, and go to state 109
+    TURN      shift, and go to state 110
+    RIGHT     shift, and go to state 111
+    LEFT      shift, and go to state 112
+    DO        shift, and go to state 113
+    ENDDO     shift, and go to state 230
+    INSTINCT  shift, and go to state 114
+    ID        shift, and go to state 115
+
+    DLCMDTABS  go to state 172
+
+
+state 204
+
+   75 DLCMDTABS: INSTINCT ID ';' .
+
+    $default  reduce using rule 75 (DLCMDTABS)
+
+
+state 205
+
+   78 DLCMDTABS: ID COLOR CS . ';'
+
+    ';'  shift, and go to state 231
+
+
+state 206
+
+   77 DLCMDTABS: ID NOTRAIL ';' .
+
+    $default  reduce using rule 77 (DLCMDTABS)
+
+
+state 207
+
+   76 DLCMDTABS: ID TRAIL ';' .
+
+    $default  reduce using rule 76 (DLCMDTABS)
+
+
+state 208
+
+   79 DLCMDTABS: ID FORWARD NUM . ';'
+
+    ';'  shift, and go to state 232
+
+
+state 209
+
+   80 DLCMDTABS: ID TURN NUM . ';'
+
+    ';'  shift, and go to state 233
+
+
+state 210
+
+   81 DLCMDTABS: ID TURN NEGNUM . ';'
+
+    ';'  shift, and go to state 234
+
+
+state 211
+
+   82 DLCMDTABS: ID RIGHT ';' .
+
+    $default  reduce using rule 82 (DLCMDTABS)
+
+
+state 212
+
+   83 DLCMDTABS: ID LEFT ';' .
+
+    $default  reduce using rule 83 (DLCMDTABS)
+
+
+state 213
+
+   84 DLCMDTABS: ID INSTINCT ID . ';'
+
+    ';'  shift, and go to state 235
+
+
+state 214
+
+   97 INCMD: DO NUM DLCLTABS ENDDO ';' .
+
+    $default  reduce using rule 97 (INCMD)
+
+
+state 215
+
+   40 DLCMD: DO NUM DLCLTABS ENDDO . ';'
+
+    ';'  shift, and go to state 236
+
+
+state 216
+
+   30 DLCMD: ID COLOR CS ';' .
+
+    $default  reduce using rule 30 (DLCMD)
+
+
+state 217
+
+   31 DLCMD: ID FORWARD NUM ';' .
+
+    $default  reduce using rule 31 (DLCMD)
+
+
+state 218
+
+   32 DLCMD: ID TURN NUM ';' .
+
+    $default  reduce using rule 32 (DLCMD)
+
+
+state 219
+
+   33 DLCMD: ID TURN NEGNUM ';' .
+
+    $default  reduce using rule 33 (DLCMD)
+
+
+state 220
+
+   37 DLCMD: ID $@3 SHELL SHLCLTABS . ENDSHELL ';'
+   53 SHLCLTABS: SHLCLTABS . SHLCMDTABS
+
+    COLOR     shift, and go to state 62
+    NOTRAIL   shift, and go to state 63
+    TRAIL     shift, and go to state 64
+    FORWARD   shift, and go to state 65
+    TURN      shift, and go to state 66
+    RIGHT     shift, and go to state 67
+    LEFT      shift, and go to state 68
+    ENDSHELL  shift, and go to state 237
+    DO        shift, and go to state 69
+    INSTINCT  shift, and go to state 70
+
+    SHLCMDTABS  go to state 105
+
+
+state 221
+
+   39 DLCMD: ID $@4 INSTINCT ID . ';'
+
+    ';'  shift, and go to state 238
+
+
+state 222
+
+   45 SHLCMD: COLOR CS ';' .
+
+    $default  reduce using rule 45 (SHLCMD)
+
+
+state 223
+
+   46 SHLCMD: FORWARD NUM ';' .
+
+    $default  reduce using rule 46 (SHLCMD)
+
+
+state 224
+
+   47 SHLCMD: TURN NUM ';' .
+
+    $default  reduce using rule 47 (SHLCMD)
+
+
+state 225
+
+   48 SHLCMD: TURN NEGNUM ';' .
+
+    $default  reduce using rule 48 (SHLCMD)
+
+
+state 226
+
+   52 SHLCMD: DO NUM SHLCLTABS . ENDDO ';'
+   53 SHLCLTABS: SHLCLTABS . SHLCMDTABS
+
+    COLOR     shift, and go to state 62
+    NOTRAIL   shift, and go to state 63
+    TRAIL     shift, and go to state 64
+    FORWARD   shift, and go to state 65
+    TURN      shift, and go to state 66
+    RIGHT     shift, and go to state 67
+    LEFT      shift, and go to state 68
+    DO        shift, and go to state 69
+    ENDDO     shift, and go to state 239
+    INSTINCT  shift, and go to state 70
+
+    SHLCMDTABS  go to state 105
+
+
+state 227
+
+   51 SHLCMD: INSTINCT ID ';' .
+
+    $default  reduce using rule 51 (SHLCMD)
+
+
+state 228
+
+   22 CMD: ID $@1 SHELL SHLCL ENDSHELL ';' .
+
+    $default  reduce using rule 22 (CMD)
+
+
+state 229
+
+   64 SHLCMDTABS: DO NUM SHLCL ENDDO ';' .
+
+    $default  reduce using rule 64 (SHLCMDTABS)
+
+
+state 230
+
+   85 DLCMDTABS: DO NUM DLCLTABS ENDDO . ';'
+
+    ';'  shift, and go to state 240
+
+
+state 231
+
+   78 DLCMDTABS: ID COLOR CS ';' .
+
+    $default  reduce using rule 78 (DLCMDTABS)
+
+
+state 232
+
+   79 DLCMDTABS: ID FORWARD NUM ';' .
+
+    $default  reduce using rule 79 (DLCMDTABS)
+
+
+state 233
+
+   80 DLCMDTABS: ID TURN NUM ';' .
+
+    $default  reduce using rule 80 (DLCMDTABS)
+
+
+state 234
+
+   81 DLCMDTABS: ID TURN NEGNUM ';' .
+
+    $default  reduce using rule 81 (DLCMDTABS)
+
+
+state 235
+
+   84 DLCMDTABS: ID INSTINCT ID ';' .
+
+    $default  reduce using rule 84 (DLCMDTABS)
+
+
+state 236
+
+   40 DLCMD: DO NUM DLCLTABS ENDDO ';' .
+
+    $default  reduce using rule 40 (DLCMD)
+
+
+state 237
+
+   37 DLCMD: ID $@3 SHELL SHLCLTABS ENDSHELL . ';'
+
+    ';'  shift, and go to state 241
+
+
+state 238
+
+   39 DLCMD: ID $@4 INSTINCT ID ';' .
+
+    $default  reduce using rule 39 (DLCMD)
+
+
+state 239
+
+   52 SHLCMD: DO NUM SHLCLTABS ENDDO . ';'
+
+    ';'  shift, and go to state 242
+
+
+state 240
+
+   85 DLCMDTABS: DO NUM DLCLTABS ENDDO ';' .
+
+    $default  reduce using rule 85 (DLCMDTABS)
+
+
+state 241
+
+   37 DLCMD: ID $@3 SHELL SHLCLTABS ENDSHELL ';' .
+
+    $default  reduce using rule 37 (DLCMD)
+
+
+state 242
+
+   52 SHLCMD: DO NUM SHLCLTABS ENDDO ';' .
+
+    $default  reduce using rule 52 (SHLCMD)

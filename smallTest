@@ -1,0 +1,28 @@
+hatch
+	instinct pentagon
+		color red;
+		forward 50;
+		turn 72;
+		color green;
+		forward 50;
+		turn 72;
+		color blue;
+                forward 50;
+                turn 72;
+                color pink;
+                forward 50;
+                turn 72;
+                color orange;
+                forward 50;
+                right;
+                notrail;
+                forward 40;
+                trail;
+	endinstinct
+	turtle alen;
+	alen trail;
+	do 9
+		alen instinct pentagon;
+	enddo;	
+soup
+

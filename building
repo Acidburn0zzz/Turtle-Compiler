@@ -1,0 +1,130 @@
+hatch
+		instinct startSpot
+			notrail;
+			right;
+			forward 250;
+			right;
+			forward 50;
+			turn 180;
+			trail;
+		endinstinct
+		instinct border
+			color blue;
+			forward 100;
+			left;
+			forward 400;
+			left;
+			forward 100;
+			left;
+			forward 400;
+			left;
+		endinstinct
+		instinct windowLeft
+			notrail;
+			color purple;
+			forward 40;
+			right;
+			forward 15;
+			trail;
+			forward 10;
+			left;
+			forward 20;
+			left;
+			forward 10;
+			left;
+			forward 20;
+			left;
+			do 3
+				instinct otherWindows;
+			enddo;
+			turn 180;
+			notrail;
+			forward 75;
+			right;
+		endinstinct
+		instinct otherWindows
+			notrail;
+			forward 20;
+			trail;
+                        forward 10;
+                        left;
+                        forward 20;
+                        left;
+                        forward 10;
+                        left;
+                        forward 20;
+                        left;
+		endinstinct
+		instinct door
+			notrail;
+			color black;
+			forward 30;
+			trail;
+			left;
+			forward 30;
+			right;
+			forward 20;
+			right;
+			forward 30;
+			left;
+			notrail;
+			forward 20;
+			trail;
+			left;
+			forward 30;
+			left;
+			forward 20;
+			left;
+			forward 30;
+			right;
+			notrail;
+			forward 50;
+			turn 180;
+		endinstinct
+		instinct spire
+			forward 40; 
+			right;	
+			forward 22;
+			trail;
+			left;
+			color orange;
+			do 9
+				instinct slightTurns;
+			enddo;
+			turn 85;
+			forward 70;
+			turn 180;
+			turn 10;
+			forward 70;
+			turn 85;
+			do 10 	
+				instinct slightTurnsDown;
+			enddo;
+			notrail;
+			left;
+			forward 100;
+		endinstinct
+		instinct slightTurns
+			forward 4;
+			turn 350;
+		endinstinct
+		instinct slightTurnsDown
+			forward 4;
+			turn 350;
+		endinstinct
+	turtle anna;
+	anna shell
+		trail;
+		instinct startSpot;
+		instinct border;
+		instinct door;
+		left;
+		do 9
+			instinct windowLeft;
+		enddo;
+		instinct spire;
+		left;
+		notrail;
+		forward 1500;
+	endshell;
+soup
