@@ -10,16 +10,22 @@ Lex and Yacc translate a made-up "turtle language" into working python code
 Building and Executing
 	The project is already built.  The executable file is simply called "turtle."  But if something happens to this file, just run 
 	"make" again, ensuring that all files mentioned in the makefile are in the linux directory.  This will re-build the "turtle" 
-	executable.  To run the executable on a program written in turtle language, just type "./turtle < programName".  
+	executable.  To run the executable on a program written in turtle language, run this command in the linux directory that contains 
+	both the input file and turtle file:
+			./turtle < inputProgramName > outputProgramName 
 
-Important Project Files
+Executable File
+	turtle
+	("./turtle < inputProgramName > outputProgramName" to run)
+
+Project Files
 	pyturtle.y  --  yacc file, translates turtle language tokens into python code
         turtle.l    --  lex file, scans tokens from the program written in "turtle language"
 	makefile    --  the makefile, builds the file 
-
-Executable
-	turtle
-	(./turtle)
+	lex.yy.c    --  needed for Lex to work
+	pyturtle.output
+	pyturtle.tab.c
+	pyturtle.tab.h
 
 Sample Input Files
 	smallTest       //these are all input files written in Turtle language
@@ -27,7 +33,7 @@ Sample Input Files
 	building
 	
 Sample Output Files
-	smallTest.py    //these files are the result of the input files being ran through the turtle executable
-	bigTest.py
-	building.py
+	smallTest.py    //these files are the result of the input files being ran through the turtle executable.
+	bigTest.py      //if you download these files to a computer with Python 3.5 installed and double-click them,
+	building.py     //the clicked program will run and produce a picture -- building.py is the best one.  
 
