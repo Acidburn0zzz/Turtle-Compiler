@@ -11,7 +11,7 @@ HIRING MANAGERS READ THIS:
 	If you are assessing my programming ability the files you'll want to pay attention to are pyturtle.y and turtle.l, particularly 
 	pyturtle.y which is where all the translation happens to turn a file written in "turtle language" into python.  The pyturtle.y 
 	file itself is in C.  Then you will want to check out each input file written in "turtle language" and compare it to its 
-	corresponding output file to verify that we translated them correctly (we did).  TurtleProjDoc.doc is the report that we 
+	corresponding output file to verify that we translated them correctly (we did).  TurtleReport.doc is the report that we 
 	submitted to our professor on this project.  Feel free to read it if you are curious about our programming choices.  
 
 Building and Executing
