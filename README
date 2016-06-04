@@ -1,20 +1,19 @@
 
-Rebel Fornea
-Ryan Gallagher
-Jonathan Smith
+R.L. Fornea
+R. Gallagher
 
 
 Turtle Project
 
 
 Building and Executing
-	The project is already built.  But if someone happens to this file, just type 'make' into the command prompt.  This will build 
+	The project is already built.  But if something happens to this file, just type 'make' into the command prompt.  This will build 
 	the executable program again.  The program is named "turtle" so to run it on a program just type "./turtle < programName".  
 
 Important Project Files
-	pyturtle.y  --  yacc file
-        turtle.l    --  lex file
-	makefile    --  the makefile
+	pyturtle.y  --  yacc file, translates turtle language tokens into python code
+        turtle.l    --  lex file, scans tokens from the program written in "turtle language"
+	makefile    --  the makefile, builds the file 
 
 Executable
 	turtle
@@ -23,8 +22,10 @@ Executable
 Sample Input Files
 	smallTest
 	bigTest
+	building
 	
 Sample Output Files
 	smallTest.py
 	bigTest.py
+	building.py
 
